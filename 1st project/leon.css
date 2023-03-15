@@ -1,0 +1,608 @@
+/* start variables */
+/* اللي انا عملته ده هو اني عرفت متغير لاني هستخدمه كتير وهوا اللون ده */
+:root {
+  --main-color:#10cab7;
+  --secondary-color:#2c4755;
+  --section-padding:60px;
+  --section-background:#f6f6f6;
+}
+/* end variables */
+/* start components */
+.special-headind{
+    /* هذا اللون مهم لشكله لانه يستخدم كثيرا  */
+    color: #ebeced;
+    font-size: 100px;
+    text-align: center;
+    /* بعمل فونت ويت علشان يكبر كل حرف */
+    font-weight: 800;
+    /* بعمل ليتر سبيسنج علشان يقربهم ا يبعدهم عن بعض */
+    letter-spacing: -3px;
+    /* علشان اشيل المارجن الاحتياطي */
+    margin: 0;
+
+}
+/* اللي جاي ده علشان اخليه يتحكم في البراجراف اللي خاص بيه هو بس وهوا ما يسمي بالنيكست سيبلنج اي يشتغل علي البراجراف اللي جاي بعده علطول*/
+.special-headind + p{
+font-size: 20px;
+text-align: center;
+color: #797979;
+margin: -30px 0 0 ;
+}
+/* التعديل اللي جاي ده لانه بقي في الموب مش مظبوط فلازم اخليه يظبط تاني فهتحكم في مكس ويدث */
+@media (max-width: 767px) {
+    .special-headind {
+        font-size: 60px;
+    }
+    .special-headind + p {
+        margin-top: -20px;
+    }
+}
+
+/* end components */
+/* start global rules */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:border-box ;
+    box-sizing: border-box;
+ 
+}
+html {
+    scroll-behavior: smooth;
+}
+
+
+
+body {
+    font-family: 'Work Sans', sans-serif;
+ 
+}
+   .parent{
+    background-color: #eee;
+   
+   }
+.container{
+
+    margin-left:auto ;
+    margin-right:auto ;
+    padding-left:15px ;
+    padding-right:15px ;
+
+}
+
+ /* media*/
+  /* short */
+ @media (min-width:768px)
+    {
+    .container{
+
+        width: 750px;
+    }
+    /* medium */
+
+ }
+
+ @media (min-width:992px){
+
+    .container{
+        width: 970px;
+    }
+
+/* large */
+
+ }
+ @media (min-width:1200px){
+    .container{
+        width: 1170px;
+    }
+
+ }
+ /* end global rules */
+
+ /* start header */
+
+ .header    {
+
+    padding:20px;
+
+}
+
+/* لاحظ في مسافه هنا علشان يفهم ان د جوه د  */
+.header .container{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    
+}
+.header .logo{
+    width: 60px;
+}
+.header .links {
+    position: relative;
+}
+
+.header .links:hover .icon span:nth-child(2) {
+width: 100%;
+
+}
+.header .links .icon{
+    width: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+
+}
+
+/* لاحظ هنا لا يوجد . ولكن مسافه قبل ل span */
+    .header .links .icon span {
+        background-color: #333;
+        /* اللي جاي ده هو بعدهم عن بعض */
+        margin-bottom: 5px;
+        height: 3px;
+        
+        /* علشان ميلزقوش في بعض */
+    }
+    .header .links .icon span:first-child {
+        width:100% ;
+    }
+    .header .links .icon span:nth-child(2) {
+        width:60% ;
+        transition: .3s;
+    }
+    .header .links .icon span:last-child {
+        width:100% ;
+    }
+    .header .links ul{
+
+        list-style: none;
+        margin-top: 0px;
+        padding: 5px;
+        background-color: #f6f6f6;
+        position: absolute;
+        right: 0px;
+        min-width: 200px;
+        /* السطر اللي جاي ده هو بعد الكلام اللي هيظهر عن الشكل اللي انا مجهزه  */
+        top:calc(100% + 10px) ;
+        display: none;
+        /* علشان اخليها تظهر فوق اللي عملته */
+        z-index: 1;
+       
+ }
+
+ /* طريقه عمل سهم  */
+ .header .links ul::before {
+    /* اللي جاي ده هوا اللي بيخليني لما اقف واجي اروح عليهم ميختفوش */
+    content:"";
+    border-width: 10px;
+    border-style: solid ;
+    border-color: transparent transparent  #f6f6f6   transparent;
+    position: absolute;
+    right: 5px;
+    top:-15px ;
+ }      
+ .header .links:hover ul{
+    display: block;
+    
+ }
+ .header .links ul li a {
+display: block; 
+padding: 15px;
+text-decoration:none ;
+color: #333;
+transition: .3s;
+
+ }  
+ .header .links ul li a:hover{
+    padding-left:25px ;
+    /* دي علشان لما اقف عليه يتحرك مسافه */
+ }
+ /* اللي جاي ده علشان لو عاوز اعمل بوردر لكله عدا اخر واحده */
+ .header .links ul li:not(:last-child){
+    border-bottom:1px solid #ddd ;
+ }
+
+ /* start landing section  */
+.landing{
+    /* لاحظ كيفيه عمل خلفيه للصفحة */
+    background-image:url(landing.jpg);
+    background-size:cover;
+    /*   اللي جاي علشان اخليه ياخد الصفحة كامله ولكن هتظهر مشكلة وهي ان ال اتش واحد عامل ديفولت مارجن من نفسه فلازم اخليها ب صفر */
+    height: calc(100vh - 64px);
+    /* عملت دي ريلاتيف كده علشان يتوسط جواها هيا كمان */
+    position:relative;
+    /*  */
+}
+
+.landing .intro-text {  
+
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-50% ,-50% );
+/* علشان اخلي الكلام في الل سنتر */
+    text-align: center;
+    width: 320px;
+    max-width: 100%;
+
+}
+.landing .intro-text h1{
+    margin: 0;
+    font-weight: bold;
+    font-size: 50px;
+    color: var(--main-color);
+
+}
+.landing .intro-text p{
+    font-size: 19px;
+    /* ده الفاصل بين كل خط والتاني */
+    line-height: 1.8;
+
+}
+
+
+/* End landing section   */
+/* start features */
+/* اول حاجه عاوز اعمل هوامش في كل الاقئام من فوق من تحت */
+.features{
+
+    padding-top:var(--section-padding) ;
+    padding-bottom:var(--section-padding) ;
+    background-color: var(--section-background);
+
+    
+}
+.features .container {
+    display: grid;
+    /* كلمة اوتو فيل يعني هيملي الاعمده علي حسب المساحة اللي قدامة دلوقتي واللي بعدع معناه اني لو عندي 3 عناصر والمساحة 1000 معني كده انهم هيقسمو علي 3 فال 3 هيبقي فوق اما لو المساحه الموجودة 800 ف كده واحد هينزل تحت */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    /* الفرق بينهم لما تصغر الحجم هيبان علشان كده دي ميزة الاوتو فيل */
+    /* grid-template-columns: repeat(3,minmax(300px,1fr)); */
+    /* ده الفاصل بينهم وبين بعض */
+    grid-gap: 20px;
+ 
+
+}
+.features .container .feat{
+    
+  
+   
+ text-align: center;
+    padding: 20px;
+}
+.features .container .feat i{
+    color: var(--main-color);
+}
+
+.features .container .feat h3{
+    /* مش هكتب بولد بس لان ده اكسترا بولد وبالتالي فلازم اخليه بالشكل ده وتكتب من غير بيكسل*/
+    font-weight: 800;
+    /* ده معناه 30 من فوق وتحت و0 يمين وشمال */
+    margin:30px 0;
+}
+.features .container .feat p{
+    line-height: 1.8;
+    font-size: 17px;
+    color: #777;
+}
+/* end features */
+/* start services */
+/* هعملها بادنج بنفس ما عملت للي فيتشرز اللي قبلها علشان متبقاش لازقه في السقف فوق*/
+.services{
+    padding-top:var(--section-padding) ;
+    padding-bottom:var(--section-padding)  ;
+}
+.services .services-content{
+    margin-top: 100PX;
+    
+    /* margin-top: 50px; */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    /* المسافه بينهم وبين بعض */
+    grid-gap: 20px;
+}
+.services .services-content .srv{
+
+    display: flex;
+    /* اللي جاي علشان افصل بينهم وبين بعض */
+    margin-bottom: 30px;
+}
+/* اللي هعمله ده علشان اخليه لما يظهر علي الموب يظهر عمودي وليس صف  */
+@media (max-width:767px){
+    .services .services-content .srv{
+        /* عمووووووووود */
+        flex-direction: column;
+        text-align: center;
+    }
+}
+.services .services-content .srv i{
+    color: var(--main-color);
+    /* الفليكس بيزس لما بيروح مع الموب بيتعامل معاه كطول وعرض ولكن الويدس مش بيعمل كده وكده مش هيخليها تظهر في النص*/
+    flex-basis: 60px ;
+    /* width: 60px; */
+}
+.services .services-content .srv .text{
+    flex: 1;
+    /* margin-top: -15px; */
+    /* padding-bottom: 10px; */
+    /* margin-left: 25px; */
+
+}
+.services .services-content .srv .text h3{
+    /* ده علشان اشيل ال مارجن بتاع اتش ثري اللي محطوطة واخليها توازي الايكون */
+    margin: 0 0 20px;
+}
+.services .services-content .srv .text p{
+    color: #444;
+    font-weight: 300;
+    line-height: 1.6;
+
+}
+/* ازاي اعمل المستطيل ده */
+.services .services-content .image{
+ text-align: center;
+ /* margin:0 0 0 15px ; */
+ /* علشان العناصر اللي هعملها جواه هعملها ابسليوت */
+ position: relative;
+}
+.services .services-content .image::before {
+    content: "";
+    right: 0;
+    background-color:var(--secondary-color);
+    width: 100px;
+    height:calc(100% + 100px);
+    /* هغيرها من صفر الي سالب خمسين علشان تتقسم علي فوق وتحت */
+    top: -50px;
+    position: absolute;
+    z-index: -1;
+}
+.services .services-content .image img{
+    width: 260px;
+}
+/* لو انا عاوز اخليه الصورة متظهرش في ميديا معينه وليكن قبل مندخل لمرحلة الشاشات الكبيره */
+@media (max-width:991px){
+    .services .services-content .image{
+     /* visibility: hidden; */
+display: none;
+    }
+}
+/* end services */
+/*  start portfilio */
+.portfolio{
+    /* علشان اعملهم هامش داخلي */
+    padding-top:var(--section-padding)  ;
+    padding-bottom:var(--section-padding)  ;
+    background-color: var(--section-background);
+}
+
+.portfolio .portfolio-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    /* المسافه بينهم وبين بعض */
+    grid-gap: 20px;
+    margin-top: 80px;
+}
+.portfolio .portfolio-content .card {
+ background-color:white;
+}
+.portfolio .portfolio-content .card img{
+    /* علشان متطلعش بره المحتوي */
+    max-width: 100%;
+}
+.portfolio .portfolio-content .card .info {
+    padding: 20px;
+}
+.portfolio .portfolio-content .card .info h3{
+    margin: 0;
+}
+.portfolio .portfolio-content .card .info p{
+    color: #777;
+    line-height: 1.6;
+    /* لان بيبقي فيه مارجن تحت ولو معملناش كده فالبتالي هيبقي ف مساحه تحت اكتر من الاصليه*/
+    /* margin-bottom: 0; */
+}
+/*  end portfilio */
+ /* start about  */
+
+
+.About{
+    
+    padding-top:var(--section-padding)  ;
+    /* ده ولعاوز ازود او اغير المساحه اللي متعود عليها  */
+    padding-bottom:calc( var(--section-padding) + 60px )  ;
+   
+}
+.About .About-content{
+    /* علشان يبعدها عن الكلمه */
+
+     margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+    /* float:right; */
+}
+/* الكلام ده حصل علشان تبقي ريبونسيف علشان لما افتح علي شاشات تانيه تظهركويس */
+@media (max-width:991px) {
+
+    .About .About-content {
+        
+        flex-direction: column;
+        text-align: center;
+
+    }
+}
+ 
+.About .About-content .image    {
+    position: relative;
+    width: 250px; 
+    height: 375px; 
+
+}
+
+@media (max-width:991px) {
+    .About .About-content .image{
+
+      margin:0 auto 60px;  
+    
+
+    }
+}
+    
+    .About .About-content .image::before {
+    content: "";
+    position: absolute;
+    background-color: #777;
+    width: 100px;
+    height:calc(100% + 80px); 
+    top: -40px;
+    left: -20px;
+    z-index: -1;
+}
+/* اللي جاي علشان اعمل حرف ال l */
+ .About .About-content .image::after {
+
+
+    content: ""; 
+    position: absolute;
+    width: 120px;
+    height: 300px;
+    /* ده بيعمل العمود اللي واقف  */
+    border-left: 80px solid var(--main-color);
+    /* ده بيعمل القاعده اللي تحت  */
+    border-bottom: 80px solid var(--main-color);    
+    
+    z-index: -1;
+    /* ده علشان يحركه لفوق شويه  */
+    top: -40px;
+    right: -160px;
+
+
+    }
+
+    @media (max-width:991px) {  
+    
+    .About .About-content .image::before,   
+    .About .About-content .image::after        
+
+    { display: none; }
+
+               
+}
+   
+
+ .About .About-content .image img{
+    /* عملت كده علشان كان مخبي علي الكلام ولكن لما عملت كده الكلام نزل لتحت تاني */
+    max-width: 100%;
+}
+.About .About-content .text{
+
+    flex-basis:calc(100% - 500px);
+/* في حل تاني اني اعمل */
+/* flex: 1; */
+/* padding-left: 300px; */
+}
+.About .About-content .text p:first-of-type {
+
+    font-weight: bold;
+    line-height: 2;
+    margin-bottom: 50px;
+
+}
+.About .About-content .text hr{
+    
+    /* لازم اقوله ان  ده بوردر */
+    border-color: var(--main-color);
+ /* لو سبتها كده هيخليها ف النص كده فلازماعمل دسبلاي */
+    width:50%;
+    display: inline-block;
+
+
+}
+.About .About-content .text p:last-of-type{
+
+    line-height: 1.7;
+    color: #777;
+}
+/* اخر حاجه وقفت عليها هيا اني مش عارف اشيل ال بيفور والافتر */
+
+
+      /* end about  */
+/* start contact */
+.contact{
+
+    padding-top:var(--section-padding);
+/* ده ولعاوز ازود او اغير المساحه اللي متعود عليها  */
+/* padding-bottom:var(--section-padding) ; */
+background-color: var(--section-background);
+
+}
+.contact .info{
+
+    padding-top: var(--section-padding);
+     padding-bottom:var(--section-padding) ; 
+    text-align: center;
+
+ 
+}
+.contact .label{
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--secondary-color);
+    letter-spacing: -2px;
+    margin-bottom: 15px;
+
+}
+.contact .info .link{
+    display: block;
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--main-color);
+    text-decoration: none;
+    margin-bottom: 15px;
+    
+}
+.contact .info .social{
+display: flex;
+justify-content: center;
+font-size: 18px;
+}
+
+.contact .info .social i{
+    margin-left: 10px;
+    color: var(--secondary-color);
+
+}
+@media (max-width:767px){
+
+    .contact .label,
+    .contact .info .link{
+        font-size: 30px;
+    }
+}
+/* end contact */
+/* start footer   */
+
+.footer{
+
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 30px 10px ;
+    text-align: center;
+    font-size: 18px;
+    /* margin-top: calc( var( --section-padding) + 60px ) ; */
+
+   
+ 
+    
+    
+    }
+
+.footer span{
+    color: var(--main-color);
+    font-weight: bold;
+  
+}
+
+
+
+
+
+/* end footer  */
